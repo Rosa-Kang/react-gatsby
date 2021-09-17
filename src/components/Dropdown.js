@@ -62,6 +62,10 @@ const CloseIcon = styled(FaTimes)`
 `
 const DropdownWrapper = styled.div`
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `
 const DropdownMenu = styled.div`
     display: grid;
