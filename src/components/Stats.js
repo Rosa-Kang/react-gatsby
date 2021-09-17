@@ -1,6 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StatsData } from '../data/StatsData'
+import { StatsData } from "../data/StatsData"
+
+
+const Stats = () => {
+    return (
+        <StatsContainer>
+            <Heading>
+                Why Choose Us?
+            </Heading>
+            <Wrapper>
+               {StatsData.map((item, index) => {
+          return (
+            <StatsBox>
+              <Icon>{item.icon}</Icon>
+              <Title>{item.title}</Title>
+              <Description>{item.desc}</Description>
+            </StatsBox>
+          )
+        })}
+            </Wrapper>
+        </StatsContainer>
+    )
+}
+
+export default Stats;
+
+
 
 const StatsBox = styled.div`
     height: 100%;
@@ -38,31 +64,10 @@ padding: 0.2rem;
 const Wrapper = styled.div`
 display: grid;
 grid-template-columns: repeat(4, 1fr);
-grid-top: 10px;
+grid-gap: 10px;
 
 @media screen and (max-width: 768px) {
 grid-template-columns: 1fr;
 }
 `
-
-const Stats = () => {
-    return (
-        <StatsContainer>
-            <Heading>Why Choose Us?</Heading>
-            <Wrapper>
-                {StatsData.map((item, index) => {
-                    return (
-                        <StatsBox key={index}>
-                            <Icon>{ item.icon}</Icon>
-                            <Title>{ item.title}</Title>
-                            <Description>{ item.desc}</Description>
-                        </StatsBox>
-                    )
-                })}
-            </Wrapper>
-        </StatsContainer>
-    )
-}
-
-export default Stats
 

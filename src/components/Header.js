@@ -51,7 +51,7 @@ margin-right: -48px;
 
 const NavBtn = styled.div`
     display: flex;
-    algin-items: center;
+    align-items: center;
     margin-right: 24px;
 
     @media screen and (max-width: 768px) {
@@ -59,12 +59,12 @@ const NavBtn = styled.div`
     }
 `
 
-const Header = () => {
+const Header = ({toggle}) => {
 
   return (
     <Nav>
       <NavLink to='/'>EXPLORIX</NavLink>
-      <Bars />
+      <Bars onClick={toggle} />
       <NavMenu>
         {menuData.map((data, index) => (
             <NavLink to={data.link} key={index}>

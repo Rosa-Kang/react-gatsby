@@ -62,12 +62,12 @@ const Testimonial = styled.div`
 
 const ColumnTwo = styled.div`
     display: grid;
-    grid-template-column: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     margin-top: 2rem;
     grid-gap: 10px;
 
     @media screen and (max-width: 500px) {
-        grid-template-column: 1fr;
+        grid-template-columns: 1fr;
     }
 `
 
@@ -97,10 +97,10 @@ const Testimonials = () => {
     return (
         <TestimonialsContainer>
             <TopLine>
-        
+                Testimonials
             </TopLine>
             <Description>
-
+                What People are Saying
             </Description>
             <ContentWrapper>
                 <ColumnOne>                    
