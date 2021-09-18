@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { FaRegLightbulb } from 'react-icons/fa'
+import Aos from 'aos'
+import "aos/dist/aos.css"
 
 
 const TestimonialsContainer = styled.div `
@@ -77,6 +79,9 @@ const Images = styled(Img)`
 `
 
 const Testimonials = () => {
+    useEffect(() => {
+        Aos.init({})
+    }, [])
 
     const data = useStaticQuery(graphql`
             query {
@@ -96,28 +101,52 @@ const Testimonials = () => {
 
     return (
         <TestimonialsContainer>
-            <TopLine>
+            <TopLine
+            data-aos="fade-right"
+            data-aos-delay="50"
+            data-aos-duration= "1000"
+            >
                 Testimonials
             </TopLine>
-            <Description>
+            <Description
+            data-aos="fade-right"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            >
                 What People are Saying
             </Description>
             <ContentWrapper>
-                <ColumnOne>                    
-                    <Testimonial>
+                <ColumnOne
+                data-aos="fade-up"
+                data-aos-delay="50"
+                data-aos-duration= "1000"
+                >
+                    <Testimonial
+                    data-aos="fade-right"
+                    data-aos-delay="250"
+                    data-aos-duration= "12000"
+                    >
                         <FaRegLightbulb css={`color: #3fffa8; font-size: 2rem; margin-bottom: 1rem`} />
                         <h3>Sarah Kim</h3>
                         <p>"It was so easy to set up my trip! They answered all my questions right
                             away and gave me the best price out of all the companies I researched."</p>
                     </Testimonial>
-                    <Testimonial>
+                    <Testimonial
+                    data-aos="fade-right"
+                    data-aos-delay="400"
+                    data-aos-duration= "12000"
+                    >
                         <IoMdCheckmarkCircleOutline css={`color: #f9b19b; font-size: 2rem; margin-bottom: 1rem`}/>
                         <h3>Sean Michaels</h3>
                         <p>"The gratest experience of my life! It was so much fun exploring the mountains
                             and they made it super easy to book my trp and accommodation."</p>
                     </Testimonial>
                 </ColumnOne>
-                <ColumnTwo>
+                <ColumnTwo
+                data-aos="fade-down"
+                data-aos-delay="200"
+                data-aos-duration= "1000"
+                >
                     {data.allFile.edges.map((image, key) => (
                         <Images key={key} fluid={image.node.childImageSharp.fluid} />
                     )

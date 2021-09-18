@@ -1,12 +1,20 @@
-import React from "react"
+import React, {useEffect} from "react"
 import styled from "styled-components"
 import { StatsData } from "../data/StatsData"
+import Aos from 'aos'
+import "aos/dist/aos.css"
 
 const Stats = () => {
-  
+  useEffect(() => {
+    Aos.init({})
+  }, [])
   return (
     <StatsContainer>
-      <Heading>
+      <Heading
+      data-aos="fade-right"
+      data-aos-delay="50"
+      data-aos-duration= "1000"
+      >
         Why Choose Us?
       </Heading>
       <Wrapper>
@@ -14,6 +22,9 @@ const Stats = () => {
           return (
             <StatsBox
               key={index}
+              data-aos="fade-right"
+              data-aos-delay="150"
+              data-aos-duration= "1000"
              >
               <Icon>{item.icon}</Icon>
               <Title>{item.title}</Title>

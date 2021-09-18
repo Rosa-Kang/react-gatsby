@@ -1,12 +1,12 @@
 import { Link } from "gatsby"
-import * as React from "react"
+import React, {useState, useEffect} from "react"
 import styled from 'styled-components'
 import { HiMenuAlt3 } from "react-icons/hi";
 import { menuData } from "../data/MenuData";
 import { Button } from "./Button";
 
 const Nav = styled.nav`
-    background: transparent;
+    background: ${({navbar}) => (navbar !== "/" ? "#141414" :  "transparent" )};
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -60,9 +60,17 @@ const NavBtn = styled.div`
 `
 
 const Header = ({toggle}) => {
+  const [navbar, setNavbar] = useState(false)
+
+  useEffect(() => {
+    if (window.location.pathname) {
+      setNavbar(window.location.pathname);
+    }
+    console.log(window.location.pathname)
+  }, [])
 
   return (
-    <Nav>
+    <Nav navbar={ navbar}>
       <NavLink to='/'>EXPLORIX</NavLink>
       <Bars onClick={toggle} />
       <NavMenu>
@@ -72,7 +80,8 @@ const Header = ({toggle}) => {
         ))}
       </NavMenu>
       <NavBtn>
-          <Button primary="true" round="true" to="/trips">Contact</Button>
+              <Button primary="true" round="true" to="/trips" css={`margin-right: 4px`}>Sign in</Button>              
+              <Button primary="true" round="true" to="/trips">Contact Us</Button>
       </NavBtn>
     </Nav>
     )

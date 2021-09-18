@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import styled from 'styled-components'
 import {Button} from "./Button"
 import video from "../assets/videos/travel.mp4"
+import Aos from 'aos'
+import "aos/dist/aos.css"
 
 const HeroContainer = styled.div`
     background: #0c0c0c;
@@ -76,6 +78,10 @@ const HeroP = styled.p`
 
 
 const Hero = () => {
+    useEffect(() => {
+        Aos.init({})
+    }, [])
+
     return (
       <HeroContainer>
             <HeroBg>
@@ -83,9 +89,21 @@ const Hero = () => {
             </HeroBg>
             <HeroContent>
                 <HeroItems>
-                    <HeroH1>Unreal Destinations</HeroH1>
-                    <HeroP>Out of this world</HeroP>
-                    <Button primary="true" round="true" big="true" to="/trips">Travel Now</Button>
+                    <HeroH1
+                        data-aos="fade-up"
+                        data-aos-delay="50"
+                        data-aos-duration= "1000"
+                    >Unreal Destinations</HeroH1>
+                    <HeroP
+                        data-aos="fade-up"
+                        data-aos-delay="50"
+                        data-aos-duration= "900"
+                    >Out of this world</HeroP>
+                    <Button
+                        data-aos="fade-up"
+                        data-aos-delay="50"
+                        data-aos-duration= "750"
+                        primary="true" round="true" big="true" to="/trips">Travel Now</Button>
                 </HeroItems>
             </HeroContent>
       </HeroContainer>
