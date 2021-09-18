@@ -7,6 +7,73 @@ import { ImLocation } from 'react-icons/im'
 import Aos from 'aos'
 import "aos/dist/aos.css"
 
+
+const Trips = ({ heading }) => {
+    useEffect(() => {
+        Aos.init({})
+    }, [])
+
+    const data = useStaticQuery(graphql `
+        query TripsQuery {
+            allTripsJson {
+                edges {
+                    node {
+                        alt
+                        button
+                        name
+                        img {
+                        childImageSharp {
+                            fluid {
+                            ...GatsbyImageSharpFluid
+                            }
+                        }
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    function getTrips(data) {
+        const tripsArray = []
+        data.allTripsJson.edges.forEach((item, index) => {
+            tripsArray.push(
+                <ProductCard
+                    key={index}
+                    data-aos="fade-down"
+                    data-aos-delay="50"
+                    data-aos-duration= "1000"
+                >
+                    <ProductImg
+                        alt={item.node.alt}
+                        fluid={item.node.img.childImageSharp.fluid}> </ProductImg>
+                    <ProductInfo>
+                        <TextWrap>
+                            <ImLocation />
+                            <ProductTitle>{ item.node.name}</ProductTitle>
+                        </TextWrap>
+                        <Button to="/trips" primary="true" round="true" css={`position: absolute; top: 420px; font-size: 14px;`} >{item.node.button}</Button>
+                    </ProductInfo>
+                </ProductCard>
+            )
+        })
+        return tripsArray
+    }
+
+    return (
+        <ProductsContainer>
+            <ProductsHeading
+                data-aos="fade-up"
+                data-aos-duration="3000">{heading}</ProductsHeading>
+            <ProductWrapper>{getTrips(data)}</ProductWrapper>
+        </ProductsContainer>
+    )
+}
+
+
+
+export default Trips
+
 const ProductsContainer = styled.div`
     min-height: 100vh;
     padding: 5rem calc((100vw - 1300px) / 2);
@@ -79,69 +146,3 @@ const ProductTitle = styled.div`
     margin-left: 0.5rem;
 `
 
-
-const Trips = ({ heading }) => {
-    useEffect(() => {
-        Aos.init({})
-    }, [])
-
-    const data = useStaticQuery(graphql `
-        query TripsQuery {
-            allTripsJson {
-                edges {
-                    node {
-                        alt
-                        button
-                        name
-                        img {
-                        childImageSharp {
-                            fluid {
-                            ...GatsbyImageSharpFluid
-                            }
-                        }
-                        }
-                    }
-                }
-            }
-        }
-    `)
-
-    function getTrips(data) {
-        const tripsArray = []
-        data.allTripsJson.edges.forEach((item, index) => {
-            tripsArray.push(
-                <ProductCard
-                    key={index}
-                    data-aos="fade-down"
-                    data-aos-delay="50"
-                    data-aos-duration= "1000"
-                >
-                    <ProductImg
-                        alt={item.node.alt}
-                        fluid={item.node.img.childImageSharp.fluid}> </ProductImg>
-                    <ProductInfo>
-                        <TextWrap>
-                            <ImLocation />
-                            <ProductTitle>{ item.node.name}</ProductTitle>
-                        </TextWrap>
-                        <Button to="/trips" primary="true" round="true" css={`position: absolute; top: 420px; font-size: 14px;`} >{item.node.button}</Button>
-                    </ProductInfo>
-                </ProductCard>
-            )
-        })
-        return tripsArray
-    }
-
-    return (
-        <ProductsContainer>
-            <ProductsHeading
-                data-aos="fade-up"
-                data-aos-duration="3000">{heading}</ProductsHeading>
-            <ProductWrapper>{getTrips(data)}</ProductWrapper>
-        </ProductsContainer>
-    )
-}
-
-
-
-export default Trips

@@ -5,6 +5,41 @@ import video from "../assets/videos/travel.mp4"
 import Aos from 'aos'
 import "aos/dist/aos.css"
 
+const Hero = () => {
+    useEffect(() => {
+        Aos.init({})
+    }, [])
+
+    return (
+      <HeroContainer>
+            <HeroBg>
+                <VideoBg src={video} type="video/mp4" autoPlay loop muted playsInLine />
+            </HeroBg>
+            <HeroContent>
+                <HeroItems>
+                    <HeroH1
+                        data-aos="fade-up"
+                        data-aos-delay="50"
+                        data-aos-duration= "1000"
+                    >Unreal Destinations</HeroH1>
+                    <HeroP
+                        data-aos="fade-up"
+                        data-aos-delay="50"
+                        data-aos-duration= "900"
+                    >Out of this world</HeroP>
+                    <Button
+                        data-aos="fade-up"
+                        data-aos-delay="50"
+                        data-aos-duration= "750"
+                        primary="true" round="true" big="true" to="/trips">Travel Now</Button>
+                </HeroItems>
+            </HeroContent>
+      </HeroContainer>
+    )
+}
+
+export default Hero
+
 const HeroContainer = styled.div`
     background: #0c0c0c;
     display: flex;
@@ -75,39 +110,3 @@ const HeroP = styled.p`
     margin-bottom: 2rem;
     font-weight: 400;
 `
-
-
-const Hero = () => {
-    useEffect(() => {
-        Aos.init({})
-    }, [])
-
-    return (
-      <HeroContainer>
-            <HeroBg>
-                <VideoBg src={video} type="video/mp4" autoPlay loop muted playsInLine />
-            </HeroBg>
-            <HeroContent>
-                <HeroItems>
-                    <HeroH1
-                        data-aos="fade-up"
-                        data-aos-delay="50"
-                        data-aos-duration= "1000"
-                    >Unreal Destinations</HeroH1>
-                    <HeroP
-                        data-aos="fade-up"
-                        data-aos-delay="50"
-                        data-aos-duration= "900"
-                    >Out of this world</HeroP>
-                    <Button
-                        data-aos="fade-up"
-                        data-aos-delay="50"
-                        data-aos-duration= "750"
-                        primary="true" round="true" big="true" to="/trips">Travel Now</Button>
-                </HeroItems>
-            </HeroContent>
-      </HeroContainer>
-    )
-}
-
-export default Hero

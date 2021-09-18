@@ -5,6 +5,36 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { menuData } from "../data/MenuData";
 import { Button } from "./Button";
 
+const Header = ({toggle}) => {
+  const [navbar, setNavbar] = useState(false)
+
+  useEffect(() => {
+    if (window.location.pathname) {
+      setNavbar(window.location.pathname);
+    }
+    console.log(window.location.pathname)
+  }, [])
+
+  return (
+    <Nav navbar={ navbar}>
+      <NavLink to='/'>EXPLORIX</NavLink>
+      <Bars onClick={toggle} />
+      <NavMenu>
+        {menuData.map((data, index) => (
+            <NavLink to={data.link} key={index}>
+            {data.title}</NavLink>
+        ))}
+      </NavMenu>
+      <NavBtn>
+              <Button primary="true" round="true" to="/trips" css={`margin-right: 4px`}>Sign in</Button>              
+              <Button primary="true" round="true" to="/contact">Contact Us</Button>
+      </NavBtn>
+    </Nav>
+    )
+}
+
+export default Header
+
 const Nav = styled.nav`
     background: ${({navbar}) => (navbar !== "/" ? "#141414" :  "transparent" )};
     height: 80px;
@@ -58,34 +88,3 @@ const NavBtn = styled.div`
         display: none;
     }
 `
-
-const Header = ({toggle}) => {
-  const [navbar, setNavbar] = useState(false)
-
-  useEffect(() => {
-    if (window.location.pathname) {
-      setNavbar(window.location.pathname);
-    }
-    console.log(window.location.pathname)
-  }, [])
-
-  return (
-    <Nav navbar={ navbar}>
-      <NavLink to='/'>EXPLORIX</NavLink>
-      <Bars onClick={toggle} />
-      <NavMenu>
-        {menuData.map((data, index) => (
-            <NavLink to={data.link} key={index}>
-            {data.title}</NavLink>
-        ))}
-      </NavMenu>
-      <NavBtn>
-              <Button primary="true" round="true" to="/trips" css={`margin-right: 4px`}>Sign in</Button>              
-              <Button primary="true" round="true" to="/trips">Contact Us</Button>
-      </NavBtn>
-    </Nav>
-    )
-}
-
-export default Header
-
