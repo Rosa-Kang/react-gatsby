@@ -1,15 +1,16 @@
 import * as React from "react"
 
 import Layout from "../components/Layout"
+import Process from "../components/Process"
 import Seo from "../components/Seo"
 
-// import Stats from "../components/Stats"
+
 
 
 const Careers = () => (
   <Layout>
     <Seo title="Careers" />
-    {/* <Stats /> */}
+    <Process />
   </Layout>
 )
 
