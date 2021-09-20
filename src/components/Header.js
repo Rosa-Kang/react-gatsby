@@ -26,7 +26,7 @@ const Header = ({toggle}) => {
         ))}
       </NavMenu>
       <NavBtn>
-              <Button primary="true" round="true" to="/trips" css={`margin-right: 4px`}>Sign in</Button>              
+              <Button primary="true" round="true" to="/signin" css={`margin-right: 4px`}>Sign in</Button>              
               <Button primary="true" round="true" to="/contact">Contact Us</Button>
       </NavBtn>
     </Nav>
@@ -52,6 +52,11 @@ const NavLink = styled(Link)`
     padding: 0 1rem;
     height: 100%;
     cursor: pointer;
+
+    &:hover {
+      color: #F26A2E;
+    }
+
 `
 
 const Bars = styled(HiMenuAlt3)`

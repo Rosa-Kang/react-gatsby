@@ -33,9 +33,9 @@ const Email = () => {
                         </label>
                     </FormWrap>
                     <Button
-                    data-aos="fade-left"
-                    data-aos-delay="500"
-                    data-aos-duration="500000"                        
+                        data-aos="fade-up"
+                        delay="2000"
+                        data-aos-duration="3000"                        
                         as="button"
                         type="submit"
                         primary="true"
