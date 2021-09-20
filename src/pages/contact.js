@@ -1,7 +1,7 @@
 import * as React from "react"
 import Email from '../components/Email'
-import Layout from "../components/Layout"
-import Seo from "../components/Seo"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 
 

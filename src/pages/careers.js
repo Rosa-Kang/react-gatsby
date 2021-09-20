@@ -1,8 +1,8 @@
 import * as React from "react"
 
-import Layout from "../components/Layout"
+import Layout from "../components/layout"
 import Process from "../components/Process"
-import Seo from "../components/Seo"
+import Seo from "../components/seo"
 
 
 
