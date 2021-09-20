@@ -22,7 +22,7 @@ const Email = () => {
                 data-aos-delay="100"
                 data-aos-duration= "1000"
                 >Sign up for your newsletter below to get $100 off your first trip!</p>
-                <form action="#">
+                <form action="/signin">
                     <FormWrap
                     data-aos="fade-up"
                     data-aos-delay="100"
@@ -33,6 +33,7 @@ const Email = () => {
                         </label>
                     </FormWrap>
                     <Button
+                        to="/signin"
                         data-aos="fade-up"
                         delay="2000"
                         data-aos-duration="3000"                        
@@ -51,7 +52,7 @@ const Email = () => {
                             width: 100%;                            
                         } `}
                     >
-                        Sign Up
+                        Sign In
                     </Button>
                 </form>
             </EmailContent>
