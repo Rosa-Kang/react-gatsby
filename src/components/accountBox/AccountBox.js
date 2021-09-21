@@ -9,7 +9,7 @@ import "aos/dist/aos.css"
 
 const BoxContainer = styled.div`
   width: 380px;
-  min-height: 550px;
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   margin: 7vw auto;
@@ -37,8 +37,8 @@ const BackDrop = styled(motion.div)`
   flex-direction: column;
   border-radius: 50%;
   transform: rotate(60deg);
-  top: -290px;
-  left: -70px;
+  top: -340px;
+  left: -90px;
   background: #F26A2E;
 `;
 
@@ -46,6 +46,7 @@ const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 4em;
 `;
 
 const HeaderText = styled.h2`
@@ -140,7 +141,7 @@ export function AccountBox(props) {
             transition={expandingTransition}
           />
           {active === "signin" && (
-            <HeaderContainer>
+            <HeaderContainer >
               <HeaderText>Welcome</HeaderText>
               <HeaderText>Back</HeaderText>
               <SmallText>Please sign-in to continue!</SmallText>
@@ -155,7 +156,7 @@ export function AccountBox(props) {
           )}
         </TopContainer>
         <InnerContainer>
-          {active === "signin" && <LoginForm />}
+          {active === "signin" && <LoginForm/>}
           {active === "signup" && <SignupForm />}
         </InnerContainer>
       </BoxContainer>

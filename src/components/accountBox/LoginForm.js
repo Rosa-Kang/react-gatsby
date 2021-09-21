@@ -4,6 +4,7 @@ import {
   BoxContainer,
   FormContainer,
   Input,
+  InputWrapper,
   MutedLink,
 } from "./common";
 import { Button } from "../Button";
@@ -15,11 +16,13 @@ export function LoginForm(props) {
   return (
     <BoxContainer>
       <FormContainer>
+        <InputWrapper css={`margin-top:1.2em`}>
         <Input type="email" placeholder="Email" />
         <Input type="password" placeholder="Password" />
+        </InputWrapper>
+        <Button primary="true" round="true" type="submit" css={`width: 40%; margin: 0 auto; text-align: center;`}>Sign In</Button>
       </FormContainer>
       <MutedLink href="#">Forget your password?</MutedLink>
-      <Button primary="true" round="true" type="submit" css={`margin: 0.8em 0;`}>Sign In</Button>
       <MutedLink href="#">
         Don't have an accoun?{" "}
         <BoldLink href="#" onClick={switchToSignup}>

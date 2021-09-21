@@ -68,7 +68,7 @@ const Testimonials = () => {
                         <IoMdCheckmarkCircleOutline css={`color: #f9b19b; font-size: 2rem; margin-bottom: 1rem`}/>
                         <h3>Sean Michaels</h3>
                         <p>"The gratest experience of my life! It was so much fun exploring the mountains
-                            and they made it super easy to book my trp and accommodation."</p>
+                            and they made it super easy to book my trip and accommodation."</p>
                     </Testimonial>
                 </ColumnOne>
                 <ColumnTwo
